@@ -132,7 +132,7 @@ namespace ACRCloud {
 						break;
 					}
 					result = this.DoRecognize (pcmData);
-					Debug.LogError (result);
+					//Debug.LogError (result);
 
 					if (result == "") {
 						retryNum--;
