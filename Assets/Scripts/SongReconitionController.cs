@@ -46,11 +46,11 @@ namespace SongRecognizer
     public class SongReconitionController : MonoBehaviour
     {
         private string _JSONSTR = "{\"status\":{\"msg\":\"Success\",\"code\":0,\"version\":\"1.0\"},\"metadata\":{\"music\":[{\"release_date\":\"Success\",\"code\":0,\"title\":\"Jesus of Suburbia\"}]}}";
-        private string _SongToSkip = "jesus of suburbiaa";
+        private string _SongToSkip = "jesus of suburbia";
 
         private void Awake()
         {
-            ParseSongJSON(_JSONSTR);
+            //ParseSongJSON(_JSONSTR);
         }
 
         public void ParseSongJSON(string jsonResultStr)
