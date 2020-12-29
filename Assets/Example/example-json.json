@@ -1,0 +1,146 @@
+{
+   "status":{
+      "msg":"Success",
+      "code":0,
+      "version":"1.0"
+   },
+   "metadata":{
+      "music":[
+         {
+            "external_ids":{
+               "isrc":"USRE10400983",
+               "upc":"093624877721"
+            },
+            "contributors":{
+               "composers":[
+                  "Billie Joe Armstrong",
+                  "Mike Dirnt",
+                  "Tré Cool"
+               ],
+               "lyricists":[
+                  "Billie Joe Armstrong",
+                  "Mike Dirnt",
+                  "Tré Cool"
+               ]
+            },
+            "label":"WMG - Reprise",
+            "duration_ms":548000,
+            "score":100,
+            "play_offset_ms":32540,
+            "external_metadata":{
+
+            },
+            "release_date":"1900-01-01",
+            "title":"Jesus of Suburbia",
+            "album":{
+               "name":"Jesus of Suburbia"
+            },
+            "genres":[
+               {
+                  "name":"Alternative"
+               }
+            ],
+            "acrid":"cf4e08780efb73df5a4d8de030fbd7a8",
+            "result_from":1,
+            "artists":[
+               {
+                  "name":"Green Day(그린 데이)"
+               }
+            ]
+         },
+         {
+            "external_ids":{
+               "isrc":"USRE10400983",
+               "upc":"054391587169"
+            },
+            "acrid":"a04a02c8e1d0393355d29d29232076e3",
+            "external_metadata":{
+               "deezer":{
+                  "album":{
+                     "name":"Jesus Of Suburbia",
+                     "id":"85532"
+                  },
+                  "artists":[
+                     {
+                        "name":"Green Day",
+                        "id":"52"
+                     }
+                  ],
+                  "track":{
+                     "name":"Jesus Of Suburbia",
+                     "id":"715746"
+                  }
+               },
+               "youtube":{
+                  "vid":"FNKPYhXmzoE"
+               },
+               "spotify":{
+                  "album":{
+                     "name":"Jesus Of Suburbia",
+                     "id":"0spxpyVFpjqxb5mQbjYbVl"
+                  },
+                  "artists":[
+                     {
+                        "name":"Green Day",
+                        "id":"7oPftvlwr6VrsViSDV7fJY"
+                     }
+                  ],
+                  "track":{
+                     "name":"Jesus Of Suburbia",
+                     "id":"63w2z7NaxnRyXRluMhkpte"
+                  }
+               }
+            },
+            "title":"Jesus Of Suburbia",
+            "album":{
+               "name":"Jesus Of Suburbia"
+            },
+            "artists":[
+               {
+                  "name":"Green Day"
+               }
+            ],
+            "contributors":{
+               "lyricists":[
+                  "MICHAEL PRITCHARD",
+                  "FRANK E.",
+                  "III WRIGHT",
+                  "BILLIE JOE ARMSTRONG"
+               ],
+               "composers":[
+                  "Green Day"
+               ]
+            },
+            "label":"Reprise",
+            "duration_ms":548253,
+            "score":100,
+            "play_offset_ms":32220,
+            "lyrics":{
+               "copyrights":[
+                  "Warner\/Chappell Music",
+                  "Inc."
+               ]
+            },
+            "genres":[
+               {
+                  "name":"Alternative"
+               },
+               {
+                  "name":"Indie Rock"
+               },
+               {
+                  "name":"Pop"
+               },
+               {
+                  "name":"Rock"
+               }
+            ],
+            "result_from":1,
+            "release_date":"2005-11-07"
+         }
+      ],
+      "timestamp_utc":"2020-12-28 22:32:51"
+   },
+   "cost_time":2.1189999580383,
+   "result_type":0
+}
