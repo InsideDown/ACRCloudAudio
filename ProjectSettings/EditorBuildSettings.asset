@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/AudioGrinch.unity
+    guid: 249f4b8de076546a9ad156301169d63b
   m_configObjects: {}

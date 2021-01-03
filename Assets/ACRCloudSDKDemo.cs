@@ -51,7 +51,7 @@ public class ACRCloudSDKDemo : MonoBehaviour, IACRCloudWorkerListener {
 	void OnGUI() 
 	{      
 		//if(Application.HasUserAuthorization(UserAuthorization.Microphone))
-		DrawAllView();
+		//** if we need to draw their weird UI - DrawAllView();
 	}
 
 	private void DrawAllView()
@@ -100,7 +100,8 @@ public class ACRCloudSDKDemo : MonoBehaviour, IACRCloudWorkerListener {
 		}
 
 		if (this.mRecResult != "") {
-			this.mRecorder.StopRecord ();
+			if(this.mRecorder != null)
+				this.mRecorder.StopRecord ();
 			this.mIsProcessing = false;
 			GUI.Label (new Rect(0, 400, Screen.width, 600), this.mRecResult, tmpLabelStyle);
 		}

@@ -13,9 +13,9 @@ public class AudioBoxController : MonoBehaviour
     [Serializable]
     public struct AudioBoxArtist
     {
+        public int ManualTimesPlayedInt;
         public string ArtistStr;
         public string SongTitleStr;
-
     }
 
     public List<AudioBoxArtist> AudioBoxItemList = new List<AudioBoxArtist>();
@@ -41,10 +41,8 @@ public class AudioBoxController : MonoBehaviour
         int counter = 0;
         foreach(AudioBoxArtist boxItem in AudioBoxItemList)
         {
-            Debug.Log(boxItem.ArtistStr);
-            Debug.Log(boxItem.SongTitleStr);
             AudioBoxItem curAudioBox = Instantiate(AudioBoxItemPrefab, AudioBoxHolder.transform, false);
-            curAudioBox.Init(isOdd, boxItem.ArtistStr, boxItem.SongTitleStr);
+            curAudioBox.Init(isOdd, boxItem.ManualTimesPlayedInt, boxItem.ArtistStr, boxItem.SongTitleStr);
             if(isOdd)
             {
                 isOdd = false;
@@ -55,13 +53,5 @@ public class AudioBoxController : MonoBehaviour
             curAudioBox.transform.localPosition = new Vector3(curAudioBox.transform.localPosition.x, curAudioBox.transform.localPosition.y - (counter * _Spacing), curAudioBox.transform.localPosition.z);
             counter++;
         }
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
