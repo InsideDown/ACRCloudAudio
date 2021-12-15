@@ -63,18 +63,21 @@ namespace SongRecognizer
             if (titleStr == "Wonderful Christmastime - Reamstered")
                 titleStr = "Wonderful Christmastime - Remastered";
 
+            PopulateTxt(artistStr, titleStr);
+
+
+            EventManager.Instance.ArtistSongRecognized(artistStr, titleStr);
+
+            yield return null;
+        }
+
+        private void PopulateTxt(string artistStr, string titleStr)
+        {
             if (!string.IsNullOrEmpty(artistStr))
                 ArtistTxt.text = artistStr;
 
             if (!string.IsNullOrEmpty(titleStr))
                 SongTitleTxt.text = titleStr;
-
-            Debug.Log("artistStr: " + artistStr);
-            Debug.Log("songStr: " + titleStr);
-
-            EventManager.Instance.ArtistSongRecognized(artistStr, titleStr);
-
-            yield return null;
         }
 
         public void ParseSongJSON(string jsonResultStr)
@@ -107,24 +110,31 @@ namespace SongRecognizer
             }
         }
 
-        //private void OnEnable()
-        //{
-        //    EventManager.OnArtistAndSongRecognized += EventManager_OnArtistAndSongRecognized;
-        //}
+        private void OnEnable()
+        {
+            EventManager.OnStartRecognition += EventManager_OnStartRecognition;
+        }
 
-        //private void OnDisable()
-        //{
-        //    EventManager.OnArtistAndSongRecognized -= EventManager_OnArtistAndSongRecognized;
-        //}
+        private void OnDisable()
+        {
+            EventManager.OnStartRecognition -= EventManager_OnStartRecognition;
+        }
+
+        private void EventManager_OnStartRecognition(string subheadStr = "", string headStr = "")
+        {
+            Debug.Log("EventManager_OnStartRecognition");
+            PopulateTxt(subheadStr, headStr);
+        }
+
 
         //private void EventManager_OnArtistAndSongRecognized(string artistStr, string songStr)
         //{
         //    ListSongAndArtist(artistStr, songStr);
         //}
 
-        private void SkipSong()
-        {
-            Debug.Log("you were our skipped song");
-        }
+        //private void SkipSong()
+        //{
+        //    Debug.Log("you were our skipped song");
+        //}
     }
 }

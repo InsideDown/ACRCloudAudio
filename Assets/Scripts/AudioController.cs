@@ -31,8 +31,10 @@ public class AudioController : MonoBehaviour
 
     private void SkipSong()
     {
+        Debug.Log("SKIP THIS SONG");
         int ranInt = Random.Range(0, MyAudioClips.Count);
         AudioClip ranClip = MyAudioClips[ranInt];
         MyAudioSource.clip = ranClip;
+        MyAudioSource.Play();
     }
 }

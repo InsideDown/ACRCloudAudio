@@ -54,6 +54,31 @@ public class ACRCloudSDKDemo : MonoBehaviour, IACRCloudWorkerListener {
 		//** if we need to draw their weird UI - DrawAllView();
 	}
 
+	public void OnRecognizeClick()
+    {
+		if (!this.mIsProcessing && this.mRecorder != null)
+		{
+			this.mRecResult = "";
+			if (!this.mRecorder.StartRecord())
+			{
+				this.mRecResult = "start Microphone record error";
+			}
+
+			//write to our fields 
+			EventManager.Instance.StartRecognition("recognizing song...", "");
+
+			var recognizerConfig = new Dictionary<string, object>();
+			// Replace "XXXXXXXX" below with your project's host, access_key and access_secret
+			recognizerConfig.Add("host", GlobalVars.Instance.HostKey);
+			recognizerConfig.Add("access_key", GlobalVars.Instance.AccessKey);
+			recognizerConfig.Add("access_secret", GlobalVars.Instance.AccessSecret);
+
+			this.mWorker = new ACRCloudWorker(this, this.mRecorder, recognizerConfig);
+			this.mWorker.Start();
+			this.mIsProcessing = true;
+		}
+	}
+
 	private void DrawAllView()
 	{
 		GUIStyle tmpBtnStyle = new GUIStyle(GUI.skin.button);
@@ -109,6 +134,9 @@ public class ACRCloudSDKDemo : MonoBehaviour, IACRCloudWorkerListener {
 		
 	public void OnResult(string result) {
 		this.mRecResult = result;
+		this.mIsProcessing = false;
+		//this.mRecorder.StopRecord();
+		this.mWorker.Cancel();
 		//EventManager.Instance.SongRecognized(result);
 		SongReconitionControllerObj.ParseSongJSON(result);
 	}

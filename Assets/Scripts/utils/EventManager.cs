@@ -14,6 +14,8 @@ public class EventManager : Singleton<EventManager>
     public delegate void ArtistSongRecognizedAction(string artistStr, string songStr);
     public static event ArtistSongRecognizedAction OnArtistAndSongRecognized;
 
+    public delegate void NotificationAction(string subheadStr, string headStr);
+    public static event NotificationAction OnStartRecognition; 
 
     public delegate void SkipSongAction();
     public static event SkipSongAction OnSkipSong;
@@ -27,6 +29,11 @@ public class EventManager : Singleton<EventManager>
     public void ArtistSongRecognized(string artistStr, string songStr)
     {
         OnArtistAndSongRecognized?.Invoke(artistStr,songStr);
+    }
+
+    public void StartRecognition(string artistStr, string songStr)
+    {
+        OnStartRecognition?.Invoke(artistStr, songStr);
     }
 
     public void SkipSong()

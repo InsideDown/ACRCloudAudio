@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class AudioBoxItem : MonoBehaviour
 {
@@ -71,9 +72,11 @@ public class AudioBoxItem : MonoBehaviour
         if(_SongPlayedCount >= _SongLimitCount)
         {
             //TODO: play your alexa audio skip here
+            EventManager.Instance.SkipSong();
             BackgroundImageDark.gameObject.SetActive(false);
             BackgroundImageLight.gameObject.SetActive(false);
             BackgroundImageRed.gameObject.SetActive(true);
+            this.gameObject.transform.DOScale(new Vector3(1.05f,1.05f,1.05f), 0.5f).SetEase(Ease.OutBack);
         }
     }
 
