@@ -32,7 +32,7 @@ public class AudioBoxItem : MonoBehaviour
         BackgroundImageRed.SetActive(false);
     }
 
-    public void Init(bool useDarkBackground, int timesPlayed, string artistStr, string songStr)
+    public void Init(bool useDarkBackground, int timesPlayed, string artistStr, string songStr, bool isRed)
     {
 
         BackgroundImageDark.gameObject.SetActive(useDarkBackground);
@@ -45,6 +45,9 @@ public class AudioBoxItem : MonoBehaviour
         SongCountTxt.text = timesPlayed.ToString();
         ArtistTxt.text = artistStr;
         SongTitleTxt.text = songStr;
+
+        if (isRed)
+            SetRed();
     }
 
     private void SetSongLimit(bool isUp = true)
@@ -73,11 +76,16 @@ public class AudioBoxItem : MonoBehaviour
         {
             //TODO: play your alexa audio skip here
             EventManager.Instance.SkipSong();
-            BackgroundImageDark.gameObject.SetActive(false);
-            BackgroundImageLight.gameObject.SetActive(false);
-            BackgroundImageRed.gameObject.SetActive(true);
+            SetRed();
             this.gameObject.transform.DOScale(new Vector3(1.05f,1.05f,1.05f), 0.5f).SetEase(Ease.OutBack);
         }
+    }
+
+    private void SetRed()
+    {
+        BackgroundImageDark.gameObject.SetActive(false);
+        BackgroundImageLight.gameObject.SetActive(false);
+        BackgroundImageRed.gameObject.SetActive(true);
     }
 
     public void OnBtnUpClick()
@@ -107,13 +115,15 @@ public class AudioBoxItem : MonoBehaviour
 
     private void CheckSongMatch(string artistStr, string songStr)
     {
+        //only check artist match for now
         if(_MyArtistStr.ToLower() == artistStr.ToLower())
         {
-            if(_MySongStr.ToLower() == songStr.ToLower())
-            {
-                IncrementSongCount();
-                CheckIfTooManyPlayed();
-            }
+            //if(_MySongStr.ToLower() == songStr.ToLower())
+            //{
+            IncrementSongCount();
+            CheckIfTooManyPlayed();
+            EventManager.Instance.SkipSong();
+            //}
         }
     }
 }

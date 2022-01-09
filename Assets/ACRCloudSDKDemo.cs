@@ -65,7 +65,7 @@ public class ACRCloudSDKDemo : MonoBehaviour, IACRCloudWorkerListener {
 			}
 
 			//write to our fields 
-			EventManager.Instance.StartRecognition("recognizing song...", "");
+			EventManager.Instance.StartRecognition("recognizing song...", "---");
 
 			var recognizerConfig = new Dictionary<string, object>();
 			// Replace "XXXXXXXX" below with your project's host, access_key and access_secret

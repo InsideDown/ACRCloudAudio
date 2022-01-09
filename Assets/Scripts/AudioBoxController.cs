@@ -16,6 +16,7 @@ public class AudioBoxController : MonoBehaviour
         public int ManualTimesPlayedInt;
         public string ArtistStr;
         public string SongTitleStr;
+        public bool IsRed;
     }
 
     public List<AudioBoxArtist> AudioBoxItemList = new List<AudioBoxArtist>();
@@ -42,7 +43,7 @@ public class AudioBoxController : MonoBehaviour
         foreach(AudioBoxArtist boxItem in AudioBoxItemList)
         {
             AudioBoxItem curAudioBox = Instantiate(AudioBoxItemPrefab, AudioBoxHolder.transform, false);
-            curAudioBox.Init(isOdd, boxItem.ManualTimesPlayedInt, boxItem.ArtistStr, boxItem.SongTitleStr);
+            curAudioBox.Init(isOdd, boxItem.ManualTimesPlayedInt, boxItem.ArtistStr, boxItem.SongTitleStr, boxItem.IsRed);
             if(isOdd)
             {
                 isOdd = false;
